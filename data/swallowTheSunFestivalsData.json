@@ -1,0 +1,136 @@
+{
+	"resultsPage": {
+		"status": "ok",
+		"results": {
+			"event": [
+				{
+					"type": "Festival",
+					"performance": [
+						{
+							"billing": "headline",
+							"displayName": "Swallow the Sun",
+							"billingIndex": 1,
+							"artist": {
+								"displayName": "Swallow the Sun",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:0f6df3f2-01f5-4d9a-a047-a76c907d7b66.json",
+										"mbid": "0f6df3f2-01f5-4d9a-a047-a76c907d7b66"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/207770-swallow-the-sun?utm_source=46337&utm_medium=partner",
+								"id": 207770
+							},
+							"id": 59426104
+						},
+						{
+							"billing": "headline",
+							"displayName": "Primordial",
+							"billingIndex": 2,
+							"artist": {
+								"displayName": "Primordial",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:eacf66a8-8ea0-41e4-879e-fcc61bcb03f0.json",
+										"mbid": "eacf66a8-8ea0-41e4-879e-fcc61bcb03f0"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/259499-primordial?utm_source=46337&utm_medium=partner",
+								"id": 259499
+							},
+							"id": 59426089
+						},
+						{
+							"billing": "headline",
+							"displayName": "Saturnus",
+							"billingIndex": 3,
+							"artist": {
+								"displayName": "Saturnus",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:b1453649-6ff6-44bf-a71c-9e6062298c7e.json",
+										"mbid": "b1453649-6ff6-44bf-a71c-9e6062298c7e"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/370886-saturnus?utm_source=46337&utm_medium=partner",
+								"id": 370886
+							},
+							"id": 59426094
+						},
+						{
+							"billing": "headline",
+							"displayName": "The Foreshadowing",
+							"billingIndex": 4,
+							"artist": {
+								"displayName": "The Foreshadowing",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:494d1c4b-fb74-4a4f-b73e-408577a97370.json",
+										"mbid": "494d1c4b-fb74-4a4f-b73e-408577a97370"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/2133658-foreshadowing?utm_source=46337&utm_medium=partner",
+								"id": 2133658
+							},
+							"id": 59426099
+						},
+						{
+							"billing": "headline",
+							"displayName": "Nox Vorago",
+							"billingIndex": 5,
+							"artist": {
+								"displayName": "Nox Vorago",
+								"identifier": [],
+								"uri": "http://www.songkick.com/artists/9099904-nox-vorago?utm_source=46337&utm_medium=partner",
+								"id": 9099904
+							},
+							"id": 59426084
+						}
+					],
+					"popularity": 0.00317,
+					"displayName": "Metal Gates 2017",
+					"status": "ok",
+					"ageRestriction": null,
+					"series": {
+						"displayName": "Metal Gates"
+					},
+					"start": {
+						"datetime": null,
+						"time": null,
+						"date": "2017-11-16"
+					},
+					"end": {
+						"datetime": null,
+						"time": null,
+						"date": "2017-11-17"
+					},
+					"location": {
+						"lat": 44.4267674,
+						"lng": 26.1025384,
+						"city": "Bucharest, Romania"
+					},
+					"venue": {
+						"displayName": "Quantic Club",
+						"metroArea": {
+							"displayName": "Bucharest",
+							"country": {
+								"displayName": "Romania"
+							},
+							"uri": "http://www.songkick.com/metro_areas/31841-romania-bucharest?utm_source=46337&utm_medium=partner",
+							"id": 31841
+						},
+						"lat": 44.4267674,
+						"lng": 26.1025384,
+						"uri": "http://www.songkick.com/venues/3541264-quantic-club?utm_source=46337&utm_medium=partner",
+						"id": 3541264
+					},
+					"uri": "http://www.songkick.com/festivals/1931269-metal-gates/id/30697859-metal-gates-2017?utm_source=46337&utm_medium=partner",
+					"id": 30697859
+				}
+			]
+		},
+		"perPage": 50,
+		"page": 1,
+		"totalEntries": 1
+	}
+}

@@ -1,0 +1,435 @@
+{
+	"resultsPage": {
+		"status": "ok",
+		"results": {
+			"event": [
+				{
+					"type": "Festival",
+					"performance": [
+						{
+							"billing": "headline",
+							"displayName": "Sepultura",
+							"billingIndex": 1,
+							"artist": {
+								"displayName": "Sepultura",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:1d93c839-22e7-4f76-ad84-d27039efc048.json",
+										"mbid": "1d93c839-22e7-4f76-ad84-d27039efc048"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/374117-sepultura?utm_source=46337&utm_medium=partner",
+								"id": 374117
+							},
+							"id": 59450159
+						},
+						{
+							"billing": "headline",
+							"displayName": "Meshuggah",
+							"billingIndex": 2,
+							"artist": {
+								"displayName": "Meshuggah",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:cf8b3b8c-118e-4136-8d1d-c37091173413.json",
+										"mbid": "cf8b3b8c-118e-4136-8d1d-c37091173413"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/217917-meshuggah?utm_source=46337&utm_medium=partner",
+								"id": 217917
+							},
+							"id": 59450219
+						},
+						{
+							"billing": "headline",
+							"displayName": "Cannibal Corpse",
+							"billingIndex": 3,
+							"artist": {
+								"displayName": "Cannibal Corpse",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:af8e4cc5-ef54-458d-a194-7b210acf638f.json",
+										"mbid": "af8e4cc5-ef54-458d-a194-7b210acf638f"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/145766-cannibal-corpse?utm_source=46337&utm_medium=partner",
+								"id": 145766
+							},
+							"id": 59450174
+						},
+						{
+							"billing": "headline",
+							"displayName": "Sonata Arctica",
+							"billingIndex": 4,
+							"artist": {
+								"displayName": "Sonata Arctica",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:319b1175-ced9-438f-986b-9239c3edd92d.json",
+										"mbid": "319b1175-ced9-438f-986b-9239c3edd92d"
+									},
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:d6812531-4566-4250-b22b-cca9f8f3c3be.json",
+										"mbid": "d6812531-4566-4250-b22b-cca9f8f3c3be"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/419723-sonata-arctica?utm_source=46337&utm_medium=partner",
+								"id": 419723
+							},
+							"id": 59450259
+						},
+						{
+							"billing": "headline",
+							"displayName": "Kreator",
+							"billingIndex": 5,
+							"artist": {
+								"displayName": "Kreator",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:39822e8d-f24e-4f07-b51b-28b22e59fbdb.json",
+										"mbid": "39822e8d-f24e-4f07-b51b-28b22e59fbdb"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/81459-kreator?utm_source=46337&utm_medium=partner",
+								"id": 81459
+							},
+							"id": 59450214
+						},
+						{
+							"billing": "headline",
+							"displayName": "Dark Tranquillity",
+							"billingIndex": 6,
+							"artist": {
+								"displayName": "Dark Tranquillity",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:9d30e408-1559-448b-b491-2f8de1583ccf.json",
+										"mbid": "9d30e408-1559-448b-b491-2f8de1583ccf"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/404541-dark-tranquillity?utm_source=46337&utm_medium=partner",
+								"id": 404541
+							},
+							"id": 59450179
+						},
+						{
+							"billing": "headline",
+							"displayName": "Alestorm",
+							"billingIndex": 7,
+							"artist": {
+								"displayName": "Alestorm",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:c0252a1b-0133-46bb-8c4f-cade46349ec3.json",
+										"mbid": "c0252a1b-0133-46bb-8c4f-cade46349ec3"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/1056026-alestorm?utm_source=46337&utm_medium=partner",
+								"id": 1056026
+							},
+							"id": 59450169
+						},
+						{
+							"billing": "headline",
+							"displayName": "Korpiklaani",
+							"billingIndex": 8,
+							"artist": {
+								"displayName": "Korpiklaani",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:50eec634-7c42-41ee-9b1f-b41d9ca28b26.json",
+										"mbid": "50eec634-7c42-41ee-9b1f-b41d9ca28b26"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/177166-korpiklaani?utm_source=46337&utm_medium=partner",
+								"id": 177166
+							},
+							"id": 59450209
+						},
+						{
+							"billing": "headline",
+							"displayName": "Enslaved",
+							"billingIndex": 9,
+							"artist": {
+								"displayName": "Enslaved",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:aa486a81-b927-4aa9-83c4-7fbc91c3a8fa.json",
+										"mbid": "aa486a81-b927-4aa9-83c4-7fbc91c3a8fa"
+									},
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:29bb04d6-5602-464c-8577-f55a27511b27.json",
+										"mbid": "29bb04d6-5602-464c-8577-f55a27511b27"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/237160-enslaved?utm_source=46337&utm_medium=partner",
+								"id": 237160
+							},
+							"id": 59450184
+						},
+						{
+							"billing": "headline",
+							"displayName": "Insomnium",
+							"billingIndex": 10,
+							"artist": {
+								"displayName": "Insomnium",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:c1f8e226-75ea-4fe6-83ce-59c122bcbca4.json",
+										"mbid": "c1f8e226-75ea-4fe6-83ce-59c122bcbca4"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/162659-insomnium?utm_source=46337&utm_medium=partner",
+								"id": 162659
+							},
+							"id": 59450204
+						},
+						{
+							"billing": "headline",
+							"displayName": "Goatwhore",
+							"billingIndex": 11,
+							"artist": {
+								"displayName": "Goatwhore",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:eb7c29b4-6951-4ac6-8516-4374fb51e6bc.json",
+										"mbid": "eb7c29b4-6951-4ac6-8516-4374fb51e6bc"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/389214-goatwhore?utm_source=46337&utm_medium=partner",
+								"id": 389214
+							},
+							"id": 59450189
+						},
+						{
+							"billing": "headline",
+							"displayName": "Rhapsody",
+							"billingIndex": 12,
+							"artist": {
+								"displayName": "Rhapsody",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:ccbc1472-e88f-4974-b28e-19d96529bc4c.json",
+										"mbid": "ccbc1472-e88f-4974-b28e-19d96529bc4c"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/294826-rhapsody?utm_source=46337&utm_medium=partner",
+								"id": 294826
+							},
+							"id": 59351734
+						},
+						{
+							"billing": "headline",
+							"displayName": "In Extremo",
+							"billingIndex": 13,
+							"artist": {
+								"displayName": "In Extremo",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:8ebd161e-f45e-41b9-8019-fcbd094c327f.json",
+										"mbid": "8ebd161e-f45e-41b9-8019-fcbd094c327f"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/456861-in-extremo?utm_source=46337&utm_medium=partner",
+								"id": 456861
+							},
+							"id": 59450199
+						},
+						{
+							"billing": "headline",
+							"displayName": "Primal Fear",
+							"billingIndex": 14,
+							"artist": {
+								"displayName": "Primal Fear",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:32567eb3-aeca-467f-8b89-a69b11fcb781.json",
+										"mbid": "32567eb3-aeca-467f-8b89-a69b11fcb781"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/352176-primal-fear?utm_source=46337&utm_medium=partner",
+								"id": 352176
+							},
+							"id": 59450239
+						},
+						{
+							"billing": "headline",
+							"displayName": "Obscura",
+							"billingIndex": 15,
+							"artist": {
+								"displayName": "Obscura",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:f002e30d-401c-44b1-82e0-d6796870594d.json",
+										"mbid": "f002e30d-401c-44b1-82e0-d6796870594d"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/406237-obscura?utm_source=46337&utm_medium=partner",
+								"id": 406237
+							},
+							"id": 59450229
+						},
+						{
+							"billing": "headline",
+							"displayName": "Septicflesh",
+							"billingIndex": 16,
+							"artist": {
+								"displayName": "Septicflesh",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:f23d00be-5619-43aa-a9b0-b32b73e5ba4f.json",
+										"mbid": "f23d00be-5619-43aa-a9b0-b32b73e5ba4f"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/8340713-septicflesh?utm_source=46337&utm_medium=partner",
+								"id": 8340713
+							},
+							"id": 59450249
+						},
+						{
+							"billing": "headline",
+							"displayName": "Necrophobic",
+							"billingIndex": 17,
+							"artist": {
+								"displayName": "Necrophobic",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:76bea740-9961-400e-845c-33c189ad9eda.json",
+										"mbid": "76bea740-9961-400e-845c-33c189ad9eda"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/365898-necrophobic?utm_source=46337&utm_medium=partner",
+								"id": 365898
+							},
+							"id": 59450224
+						},
+						{
+							"billing": "headline",
+							"displayName": "October Tide",
+							"billingIndex": 18,
+							"artist": {
+								"displayName": "October Tide",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:b4a29d12-b9e5-4b78-9639-f12a94e74a37.json",
+										"mbid": "b4a29d12-b9e5-4b78-9639-f12a94e74a37"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/284826-october-tide?utm_source=46337&utm_medium=partner",
+								"id": 284826
+							},
+							"id": 59450234
+						},
+						{
+							"billing": "headline",
+							"displayName": "Wolfheart",
+							"billingIndex": 19,
+							"artist": {
+								"displayName": "Wolfheart",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:60e2fddc-8202-4a22-a7f9-eaf5b0bf6a8c.json",
+										"mbid": "60e2fddc-8202-4a22-a7f9-eaf5b0bf6a8c"
+									},
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:92e110a1-3ac2-48a3-ab5f-95ad7971d6de.json",
+										"mbid": "92e110a1-3ac2-48a3-ab5f-95ad7971d6de"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/345497-wolfheart?utm_source=46337&utm_medium=partner",
+								"id": 345497
+							},
+							"id": 59450254
+						},
+						{
+							"billing": "headline",
+							"displayName": "Aeternam",
+							"billingIndex": 20,
+							"artist": {
+								"displayName": "Aeternam",
+								"identifier": [
+									{
+										"href": "http://api.songkick.com/api/3.0/artists/mbid:abbdaa40-5c18-4236-85a0-d2352036cb96.json",
+										"mbid": "abbdaa40-5c18-4236-85a0-d2352036cb96"
+									}
+								],
+								"uri": "http://www.songkick.com/artists/873390-aeternam?utm_source=46337&utm_medium=partner",
+								"id": 873390
+							},
+							"id": 59450164
+						},
+						{
+							"billing": "headline",
+							"displayName": "Rhapsody Reunion",
+							"billingIndex": 21,
+							"artist": {
+								"displayName": "Rhapsody Reunion",
+								"identifier": [],
+								"uri": "http://www.songkick.com/artists/9155749-rhapsody-reunion?utm_source=46337&utm_medium=partner",
+								"id": 9155749
+							},
+							"id": 59450244
+						},
+						{
+							"billing": "headline",
+							"displayName": "Gyze (JP)",
+							"billingIndex": 22,
+							"artist": {
+								"displayName": "Gyze (JP)",
+								"identifier": [],
+								"uri": "http://www.songkick.com/artists/8591679-gyze-jp?utm_source=46337&utm_medium=partner",
+								"id": 8591679
+							},
+							"id": 59450194
+						}
+					],
+					"popularity": 0.042359,
+					"displayName": "70000 Tons of Metal 2018",
+					"status": "ok",
+					"ageRestriction": null,
+					"series": {
+						"displayName": "70000 Tons of Metal"
+					},
+					"start": {
+						"datetime": "2018-02-01T19:00:00-0500",
+						"time": "19:00:00",
+						"date": "2018-02-01"
+					},
+					"end": {
+						"datetime": null,
+						"time": null,
+						"date": "2018-02-05"
+					},
+					"location": {
+						"lat": 26.0816782,
+						"lng": -80.1206082,
+						"city": "Port Everglades, FL, US"
+					},
+					"venue": {
+						"displayName": "Port Everglades - Fort Lauderdale",
+						"lat": 26.0816782,
+						"metroArea": {
+							"displayName": "Fort Lauderdale",
+							"country": {
+								"displayName": "US"
+							},
+							"uri": "http://www.songkick.com/metro_areas/19511-us-fort-lauderdale?utm_source=46337&utm_medium=partner",
+							"id": 19511,
+							"state": {
+								"displayName": "FL"
+							}
+						},
+						"lng": -80.1206082,
+						"uri": "http://www.songkick.com/venues/2967563-port-everglades-fort-lauderdale?utm_source=46337&utm_medium=partner",
+						"id": 2967563
+					},
+					"uri": "http://www.songkick.com/festivals/136946-70000-tons-of-metal/id/30711099-70000-tons-of-metal-2018?utm_source=46337&utm_medium=partner",
+					"id": 30711099
+				}
+			]
+		},
+		"perPage": 50,
+		"page": 1,
+		"totalEntries": 1
+	}
+}

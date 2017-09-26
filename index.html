@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="metal-fest">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <title>MetalFest</title>
+    </head>
+    <body>
+        <div ng-controller="MainController as vm">
+            Hello {{ vm.getFullName() }}
+
+            <div class="search">
+                <h1>Artists Directory</h1>
+                <label>Search: </label>
+                <input type="text" ng-model="query" placeholder="Search for artists..." autofocus/>
+                <label>Add Bands: </label>
+                <input type="text" ng-model="vm.addedBands" placeholder="Band name"/>
+                <button ng-click="vm.addBand()">Add</button>
+            </div>
+            <ul>
+                <li ng-repeat="band in vm.bands | filter: query">
+                    {{ band.name | CapitalizeFilter }}
+                <span ng-click="vm.removeBand($index)">×</span>
+                </li>
+            </ul>
+            <ul>
+                <li ng-repeat="band in vm.festivals">
+                    {{ band.bandName }} will appear in: 
+                    <ul>
+                        <li ng-repeat="festivalData in band.festivalsData">
+                            {{ festivalData.series.displayName }}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>                      
+        <script src="vendors/angular.min.js"></script>
+        <script src="js/metalFest.js"></script>
+        <script src="js/config.js"></script>
+        <script src="js/filters/capitalizeFilter.js"></script>
+        <script src="js/controllers/mainController.js"></script>
+        <script src="js/services/utilsService.js"></script>
+        <script src="js/services/dataService.js"></script>
+        <script src="js/services/logicService.js"></script>
+        <script src="js/services/userDataService.js"></script>
+        <script src="js/services/festivalsDataService.js"></script>
+    </body>
+</html>

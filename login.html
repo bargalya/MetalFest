@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="metal-fest">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>MetalFest</title>
+</head>
+
+<body>
+    <div ng-controller="LoginController as vm">
+        <div ng-if="vm.fullName">
+            <h1>Welcome {{ vm.fullName }}</h1>
+            <hr>
+        </div>
+        <div ng-if="!vm.fullName">
+            <h1>Please login</h1>
+            <input type="text" ng-model="vm.userName" placeholder="user name" />
+            <input type="password" ng-model="vm.password" placeholder="password" />
+            <button ng-click="vm.login()">login</button>
+        </div>
+    </div>
+    <script src="vendors/angular.min.js"></script>
+    <script src="js/metalFest.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/filters/capitalizeFilter.js"></script>
+    <script src="js/controllers/loginController.js"></script>
+    <script src="js/services/loginService.js"></script>
+    <script src="js/services/utilsService.js"></script>
+    <script src="js/services/dataService.js"></script>
+</body>
+
+</html>
