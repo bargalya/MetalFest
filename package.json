@@ -1,0 +1,27 @@
+{
+  "name": "MetalFest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "metalfest_server.js",
+  "engines": {
+    "node": "6.11.1"
+  },
+  "dependencies": {
+    "express": "^4.15.4"  
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bargalya/MetalFest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bargalya/MetalFest/issues"
+  },
+  "homepage": "https://github.com/bargalya/MetalFest#readme"
+}
