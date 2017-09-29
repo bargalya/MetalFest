@@ -22,15 +22,19 @@
             <input type="password" ng-model="vm.password" placeholder="password" />
             <button ng-click="vm.login()">login</button>
         </div>
+        <fb:login-button show-faces="true" max-rows="1"
+        size="large"></fb:login-button>
+        <div id="fb-root"></div>
     </div>
     <script src="vendors/angular.min.js"></script>
     <script src="js/metalFest.js"></script>
     <script src="js/config.js"></script>
     <script src="js/filters/capitalizeFilter.js"></script>
     <script src="js/controllers/loginController.js"></script>
-    <script src="js/services/loginService.js"></script>
+    <script src="js/services/fbLoginService.js"></script>
     <script src="js/services/utilsService.js"></script>
     <script src="js/services/dataService.js"></script>
+    <script src="js/fbInitialize.js"></script>
 </body>
 
 </html>

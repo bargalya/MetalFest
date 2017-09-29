@@ -2,13 +2,13 @@
     'use strict';
 
     var controllerName = 'LoginController';
-    var controllerDependencies = ['$scope', 'LoginService', logicController];
+    var controllerDependencies = ['$scope', 'FbLoginService', logicController];
 
     app.controller(controllerName, controllerDependencies);
 
     ////////////////////////////////////////////////////////
 
-    function logicController($scope, LoginService) {
+    function logicController($scope, FbLoginService) {
         // private variables
         var vm = this;
 
@@ -23,9 +23,9 @@
         ///////////////////////////////////////////////////
 
         function login() {
-            LoginService.doLogin(vm.userName, vm.password).then(
+            FbLoginService.watchLoginChange().then(
                 function (data) {
-                    vm.fullName = data.name;
+                    console.log(data);
                 },
                 function (error) {
                     console.error(error);
