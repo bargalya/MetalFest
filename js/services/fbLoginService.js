@@ -35,7 +35,7 @@
                      The user is already logged,
                      is possible retrieve his personal info
                     */
-                    _self.getUserInfo();
+                    _self.getUserInfo();                   
 
                     /*
                      This is also the point where you should create a
@@ -62,9 +62,10 @@
             var _self = this;
 
             FB.api('/me', function (res) {
-                $rootScope.$apply(function () {
-                    $rootScope.user = _self.user = res;
-                });
+                getUserLikes(res.id);
+                // $rootScope.$apply(function () {
+                //     $rootScope.user = _self.user = res;
+                // });
             });
 
         }
@@ -79,6 +80,17 @@
                 });
             });
 
+        }
+
+        function getUserLikes(userId) {
+            FB.api(
+                "/" + userId + "/likes",
+                function (response) {
+                  if (response && !response.error) {
+                    debugger;
+                  }
+                }
+            );
         }
     }
 })(app);
