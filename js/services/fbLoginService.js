@@ -2,13 +2,13 @@
     'use strict';
 
     var serviceName = 'FbLoginService';
-    var serviceDependencies = ['$http', 'Config', fbLoginService];
+    var serviceDependencies = ['$http', '$rootScope', 'Config', fbLoginService];
 
     app.service(serviceName, serviceDependencies);
 
     ////////////////////////////////////////////////////////
 
-    function fbLoginService($http, Config) {
+    function fbLoginService($http, $rootScope, Config) {
         // private variables
         var data;
 
