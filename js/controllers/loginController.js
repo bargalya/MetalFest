@@ -17,6 +17,7 @@
 
         //public methods
         vm.login = login;
+        vm.logout = logout;
 
         return;
 
@@ -34,6 +35,9 @@
 
             vm.userName = undefined;
             vm.password = undefined;
+        }
+        function logout() {
+            FbLoginService.logout();
         }
     }
 })(app);
