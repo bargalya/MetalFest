@@ -2,95 +2,71 @@
     'use strict';
 
     var serviceName = 'FbLoginService';
-    var serviceDependencies = ['$http', '$rootScope', 'Config', fbLoginService];
+    var serviceDependencies = ['$http', '$rootScope', '$q', 'Config', 'UtilsService', fbLoginService];
 
     app.service(serviceName, serviceDependencies);
 
     ////////////////////////////////////////////////////////
 
-    function fbLoginService($http, $rootScope, Config) {
+    function fbLoginService($http, $rootScope, $q, Config, UtilsService) {
         // private variables
-        var data;
-
+        var data = [];
+        var userInfo;
+        var deferred;
+        
         // service API
         var api = {
-            watchLoginChange: watchLoginChange,
-            getUserInfo: getUserInfo,
-            logout: logout
+            handleAppLogin: handleAppLogin,
+            getDataFromFacebook: getDataFromFacebook
         };
 
         return api;
 
         ///////////////////////////////////////////////////
 
-        function watchLoginChange() {
+        function handleAppLogin() {
+            FB.api('/me', function (response) {
+                userInfo = response;
 
-            var _self = this;
-
-            FB.Event.subscribe('auth.authResponseChange', function (res) {
-
-                if (res.status === 'connected') {
-
-                    /*
-                     The user is already logged,
-                     is possible retrieve his personal info
-                    */
-                    _self.getUserInfo();                   
-
-                    /*
-                     This is also the point where you should create a
-                     session for the current user.
-                     For this purpose you can use the data inside the
-                     res.authResponse object.
-                    */
-
-                } else {
-
-                    /*
-                     The user is not logged to the app, or into Facebook:
-                     destroy the session on the server.
-                    */
-
-                }
-
+                getDataFromFacebook('/' + userInfo.id + '/music').then(handleDataFromLogin);
             });
-
         }
 
-        function getUserInfo() {
+        function handleDataFromLogin(response) {
+            $rootScope.$broadcast('handleLoginData', response);
+        }
 
-            var _self = this;
+        function getDataFromFacebook(request) {
+            if (!UtilsService.isStringNullOrEmpty(request)) {
+                console.debug("getPagedData: Request:" + request + "is not strings");
+                return;
+            }
 
-            FB.api('/me', function (res) {
-                getUserLikes(res.id);
-                // $rootScope.$apply(function () {
-                //     $rootScope.user = _self.user = res;
-                // });
-            });
+            deferred = $q.defer();
+            FB.api(request, getNextPageData);
 
+            return deferred.promise;
+        }
+
+        function getNextPageData(response) {
+            if (UtilsService.isDefined(response) && !response.error) {
+                data.push.apply(data, response.data);
+            }
+
+            if (!UtilsService.isDefined(response.paging) || !UtilsService.isDefined(response.paging.next)) {
+                deferred.resolve(data);
+            } 
+            else {
+                FB.api(response.paging.next, getNextPageData);
+            }
         }
 
         function logout() {
-
-            var _self = this;
-
             FB.logout(function (response) {
-                $rootScope.$apply(function () {
-                    $rootScope.user = _self.user = {};
-                });
+                userData = undefined;
+                data = [];
+                deferred = undefined;
             });
-
-        }
-
-        function getUserLikes(userId) {
-            FB.api(
-                "/" + userId + "/likes",
-                function (response) {
-                  if (response && !response.error) {
-                    debugger;
-                  }
-                }
-            );
         }
     }
 })(app);

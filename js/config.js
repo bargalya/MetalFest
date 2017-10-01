@@ -2,6 +2,7 @@
     'use strict';
 
     app.constant('Config', {
+        facebookAppId : '1129987543802195',
         songKickAPIKey : 'x1K8MznSJ64qniOf',
         songKickAPIGetFestivalsByArtistName : 
         'http://api.songkick.com/api/3.0/events.json?apikey=[YOUR_API_KEY]&artist_name=Radiohead&type=festival',

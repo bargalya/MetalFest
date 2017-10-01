@@ -14,30 +14,21 @@
 
         // public variables
         vm.fullName;
+        vm.musicData;
 
         //public methods
-        vm.login = login;
-        vm.logout = logout;
+
+        init();
 
         return;
 
         ///////////////////////////////////////////////////
 
-        function login() {
-            FbLoginService.watchLoginChange().then(
-                function (data) {
-                    console.log(data);
-                },
-                function (error) {
-                    console.error(error);
-                });
-            
-
-            vm.userName = undefined;
-            vm.password = undefined;
-        }
-        function logout() {
-            FbLoginService.logout();
+        function init() {
+            $scope.$on('handleLoginData', function (event, data) {
+                vm.musicData = data;
+                console.log(vm.musicData);
+            });
         }
     }
 })(app);

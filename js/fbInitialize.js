@@ -1,24 +1,21 @@
 (function (app) {
     'use strict';
 
-    ///////////////////// Facebook /////////////////////
-    var fbDependencies = ['$rootScope', '$window', 'FbLoginService', fbInit];
+    var fbDependencies = ['$rootScope', '$window', 'Config', 'FbLoginService', fbInit];
 
     app.run(fbDependencies);
 
-    function fbInit($rootScope, $window, FbLoginService) {
+    ///////////////////// Facebook /////////////////////
 
-        $rootScope.user = {};
-
+    function fbInit($rootScope, $window, Config, FbLoginService) {
         $window.fbAsyncInit = function () {
             // Executed when the SDK is loaded
-
             FB.init({
 
                 /*
                  The app id of the web app;
                 */
-                appId: '1129987543802195',
+                appId: Config.facebookAppId,
 
                 /*
                  Adding a Channel File improves the performance
@@ -43,13 +40,15 @@
                 xfbml: true
             });
 
-            FbLoginService.watchLoginChange();
-
+            FB.Event.subscribe('auth.authResponseChange', function (res) {
+                if (res.status === 'connected') {
+                    FbLoginService.handleAppLogin();
+                }
+            });
         };
 
         (function (d) {
             // load the Facebook javascript SDK
-
             var js,
                 id = 'facebook-jssdk',
                 ref = d.getElementsByTagName('script')[0];
@@ -64,11 +63,6 @@
             js.src = "//connect.facebook.net/en_US/all.js";
 
             ref.parentNode.insertBefore(js, ref);
-
         }(document));
-
     }
-
-    //////////////////////////////////////////////////////////////
-
 })(app);

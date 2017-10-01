@@ -12,17 +12,12 @@
 
 <body>
     <div ng-controller="LoginController as vm">
-        <div ng-if="vm.fullName">
-            <h1>Welcome {{ vm.fullName }}</h1>
-            <hr>
-        </div>
-        <div ng-if="!vm.fullName">
-            <h1>Please login</h1>
-            <input type="text" ng-model="vm.userName" placeholder="user name" />
-            <input type="password" ng-model="vm.password" placeholder="password" />
-            <button ng-click="vm.login()">login</button>
-        </div>
-        <fb:login-button show-faces="true" scope="public_profile, user_likes" autologoutlink="true" max-rows="1" size="large"></fb:login-button>
+        <fb:login-button show-faces="true" scope="public_profile, user_likes" autologoutlink="true" max-rows="1" size="large"></fb:login-button>   
+        <ul>
+            <li ng-repeat="band in vm.musicData">
+                {{ band.name }}
+            </li>
+        </ul>
         <div id="fb-root"></div>
     </div>
     <script src="vendors/angular.min.js"></script>
