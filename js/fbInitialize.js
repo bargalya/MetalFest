@@ -1,13 +1,13 @@
 (function (app) {
     'use strict';
 
-    var fbDependencies = ['$rootScope', '$window', 'Config', 'FbLoginService', fbInit];
+    var fbDependencies = ['$rootScope', '$window', 'Config', 'FacebookService', fbInit];
 
     app.run(fbDependencies);
 
     ///////////////////// Facebook /////////////////////
 
-    function fbInit($rootScope, $window, Config, FbLoginService) {
+    function fbInit($rootScope, $window, Config, FacebookService) {
         $window.fbAsyncInit = function () {
             // Executed when the SDK is loaded
             FB.init({
@@ -42,7 +42,10 @@
 
             FB.Event.subscribe('auth.authResponseChange', function (res) {
                 if (res.status === 'connected') {
-                    FbLoginService.handleAppLogin();
+                    FacebookService.handleAppLogin();
+                }
+                else{
+                    FacebookService.handleAppLogut();
                 }
             });
         };

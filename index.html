@@ -1,51 +1,72 @@
 <!DOCTYPE html>
 <html ng-app="metal-fest">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge" />
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="css/styles.css" />
-        <title>MetalFest</title>
-    </head>
-    <body>
-        <div ng-controller="MainController as vm">
-            Hello {{ vm.getFullName() }}
 
-            <div class="search">
-                <h1>Artists Directory</h1>
-                <label>Search: </label>
-                <input type="text" ng-model="query" placeholder="Search for artists..." autofocus/>
-                <label>Add Bands: </label>
-                <input type="text" ng-model="vm.addedBands" placeholder="Band name"/>
-                <button ng-click="vm.addBand()">Add</button>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>MetalFest</title>
+</head>
+
+<body>
+    <div ng-controller="MainController as vm">
+        <fb:login-button show-faces="false" scope="public_profile, user_likes" autologoutlink="true" max-rows="1" size="large"></fb:login-button>
+        <div ng-if="!vm.isLoggedIn">Please sign in to continue</div>
+        <div ng-if="vm.isLoggedIn">
+            Hello {{ vm.userInfo.name }}
+            <div ng-if="!vm.dataLoaded" class="loader"></div>
+            <div ng-if="vm.dataLoaded">
+                <div class="search">
+                    <h1>Artists Directory</h1>
+                    <label>Search: </label>
+                    <input type="text" ng-model="query" placeholder="Search for artists..." autofocus/>
+                    <label>Add Bands: </label>
+                    <input type="text" ng-model="vm.addedBands" placeholder="Band name" />
+                    <button ng-click="vm.addBand()">Add</button>
+                </div>
+                <ul>
+                    <li ng-repeat="band in vm.bands | filter: query | StartFromFilter:vm.currentPage*vm.pageSize | limitTo:vm.pageSize">
+                        {{ band.name | CapitalizeFilter }}
+                        <span ng-click="vm.removeBand($index)">×</span>
+                    </li>
+                </ul>
+
+                <button ng-disabled="vm.disablePrevButton()" ng-click=" vm.onPrevClick()">
+                    Previous
+                </button> {{vm.currentPage+1}}/{{vm.numberOfPages()}}
+                <button ng-disabled="vm.disableNextButton()" ng-click=" vm.onNextClick()">
+                    Next
+                </button>
+
+                <ul>
+                    <li ng-repeat="band in vm.festivals">
+                        {{ band.bandName }} will appear in:
+                        <ul>
+                            <li ng-repeat="festivalData in band.festivalsData">
+                                {{ festivalData.series.displayName }}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <ul>
-                <li ng-repeat="band in vm.bands | filter: query">
-                    {{ band.name | CapitalizeFilter }}
-                <span ng-click="vm.removeBand($index)">×</span>
-                </li>
-            </ul>
-            <ul>
-                <li ng-repeat="band in vm.festivals">
-                    {{ band.bandName }} will appear in: 
-                    <ul>
-                        <li ng-repeat="festivalData in band.festivalsData">
-                            {{ festivalData.series.displayName }}
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>                      
-        <script src="vendors/angular.min.js"></script>
-        <script src="js/metalFest.js"></script>
-        <script src="js/config.js"></script>
-        <script src="js/filters/capitalizeFilter.js"></script>
-        <script src="js/controllers/mainController.js"></script>
-        <script src="js/services/utilsService.js"></script>
-        <script src="js/services/dataService.js"></script>
-        <script src="js/services/logicService.js"></script>
-        <script src="js/services/userDataService.js"></script>
-        <script src="js/services/festivalsDataService.js"></script>
-    </body>
+        </div>
+        <div id="fb-root"></div>
+    </div>
+    <script src="vendors/angular.min.js"></script>
+    <script src="js/metalFest.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/filters/capitalizeFilter.js"></script>
+    <script src="js/filters/startFromFilter.js"></script>
+    <script src="js/controllers/mainController.js"></script>
+    <script src="js/services/utilsService.js"></script>
+    <script src="js/services/facebookService.js"></script>
+    <script src="js/services/dataService.js"></script>
+    <script src="js/services/logicService.js"></script>
+    <script src="js/services/userDataService.js"></script>
+    <script src="js/services/festivalsDataService.js"></script>
+    <script src="js/fbInitialize.js"></script>
+</body>
+
 </html>

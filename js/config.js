@@ -11,7 +11,10 @@
         festivalsUrl: 'data/festivalsData.json',
         meshuggahFestivalsDataUrl: 'data/meshuggahFestivalsData.json',
         swallowTheSunFestivalsDataUrl: 'data/swallowTheSunFestivalsData.json',
-        enslavedFestivalsDataUrl: 'data/enslavedFestivalData.json'
-
+        enslavedFestivalsDataUrl: 'data/enslavedFestivalData.json',
+        Events : {
+            handleLoginData: 'handleLoginData',
+            handleLogout: 'handleLogutData',
+        }
     });
 })(app);

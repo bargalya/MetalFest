@@ -1,23 +1,24 @@
 (function (app) {
     'use strict';
 
-    var serviceName = 'FbLoginService';
-    var serviceDependencies = ['$http', '$rootScope', '$q', 'Config', 'UtilsService', fbLoginService];
+    var serviceName = 'FacebookService';
+    var serviceDependencies = ['$http', '$rootScope', '$q', 'Config', 'UtilsService', facebookService];
 
     app.service(serviceName, serviceDependencies);
 
     ////////////////////////////////////////////////////////
 
-    function fbLoginService($http, $rootScope, $q, Config, UtilsService) {
+    function facebookService($http, $rootScope, $q, Config, UtilsService) {
         // private variables
         var data = [];
         var userInfo;
         var deferred;
-        
+
         // service API
         var api = {
             handleAppLogin: handleAppLogin,
-            getDataFromFacebook: getDataFromFacebook
+            handleAppLogut: handleAppLogut,
+            getLikedBands: getLikedBands
         };
 
         return api;
@@ -27,13 +28,20 @@
         function handleAppLogin() {
             FB.api('/me', function (response) {
                 userInfo = response;
-
-                getDataFromFacebook('/' + userInfo.id + '/music').then(handleDataFromLogin);
+                handleDataFromLogin(userInfo);
             });
         }
 
-        function handleDataFromLogin(response) {
-            $rootScope.$broadcast('handleLoginData', response);
+        function handleAppLogut() {
+            userInfo = undefined;
+            data = [];
+            deferred = undefined;
+
+            handleDataFromLogout(data);
+        }
+
+        function getLikedBands(userId) {
+            return getDataFromFacebook('/' + userId + '/music');
         }
 
         function getDataFromFacebook(request) {
@@ -55,18 +63,25 @@
 
             if (!UtilsService.isDefined(response.paging) || !UtilsService.isDefined(response.paging.next)) {
                 deferred.resolve(data);
-            } 
-            else {
+            } else {
                 FB.api(response.paging.next, getNextPageData);
             }
         }
 
-        function logout() {
-            FB.logout(function (response) {
-                userData = undefined;
-                data = [];
-                deferred = undefined;
-            });
+
+        /////Events////////
+        function handleDataFromLogin(response) {
+            $rootScope.$broadcast(Config.Events.handleLoginData, response);
         }
+
+        function handleDataFromLogout(response) {
+            var logoutedData = {
+                userInfo : userInfo,
+                bands : data
+            }
+            $rootScope.$broadcast(Config.Events.handleLogout, logoutedData);
+        }
+
+
     }
 })(app);
