@@ -39,6 +39,17 @@
                 <button ng-disabled="vm.disableNextButton()" ng-click=" vm.onNextClick()">
                     Next
                 </button>
+                <br /> <br />
+                <div>
+                    Best Festivals to go to this year:
+                    <ol>
+                        <li ng-repeat="festData in vm.festivalsCount">
+                           Festival: "{{festData.festivalName}}" will have {{festData.bandsCount}} bands you like! <br />
+                           Bands: {{vm.arrayToString(festData.bandsArray)}}
+                           <br /><br />
+                        </li>
+                    </ol>
+                </div>
 
                 <ul>
                     <li ng-repeat="band in vm.festivals">
@@ -50,6 +61,7 @@
                         </ul>
                     </li>
                 </ul>
+
             </div>
         </div>
         <div id="fb-root"></div>
@@ -63,10 +75,8 @@
     <script src="js/controllers/mainController.js"></script>
     <script src="js/services/utilsService.js"></script>
     <script src="js/services/facebookService.js"></script>
-    <script src="js/services/dataService.js"></script>
     <script src="js/services/logicService.js"></script>
-    <script src="js/services/userDataService.js"></script>
-    <script src="js/services/festivalsDataService.js"></script>
+    <script src="js/services/festivalsService.js"></script>
     <script src="js/fbInitialize.js"></script>
 </body>
 

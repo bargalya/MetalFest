@@ -3,14 +3,14 @@
 
     var controllerName = 'MainController';
     var controllerDependencies = ['$scope', 'Config',
-    'LogicService', 'FacebookService', 'FestivalsDataService', mainController
+        'LogicService', 'FacebookService', 'FestivalsService', mainController
     ];
 
     app.controller(controllerName, controllerDependencies);
 
     ////////////////////////////////////////////////////////
 
-    function mainController($scope, Config, LogicService, FacebookService, FestivalsDataService) {
+    function mainController($scope, Config, LogicService, FacebookService, FestivalsService) {
         // private variables
         var vm = this;
 
@@ -27,6 +27,7 @@
         // public methods
         vm.addBand = addBand;
         vm.removeBand = removeBand;
+        vm.arrayToString = arrayToString;
         vm.numberOfPages = numberOfPages;
         vm.disableNextButton = disableNextButton;
         vm.disablePrevButton = disablePrevButton;
@@ -46,40 +47,39 @@
                     $scope.$apply(function () {
                         vm.userInfo = data;
                         vm.isLoggedIn = true;
-                        console.log(data);
-                        getFestivalData(vm.userInfo.id);
+                        
+                        getLlikedBandsData(vm.userInfo.id);
                     });
                 }
             });
 
-            $scope.$on(Config.events.LOGOUT, function (event, data) {
+            $scope.$on(Config.events.LOGOUT, function (event) {
                 $scope.$apply(function () {
-                    vm.bands = data.bands;
-                    vm.userInfo = data.userInfo;
+                    vm.bands = [];
+                    vm.userInfo = undefined;
                     vm.currentPage = 0;
                     vm.isLoggedIn = false;
-                    vm.dataLoaded = false; 
-                    console.log(vm.bands);
+                    vm.dataLoaded = false;
                 });
-
             });
         }
 
-        function getFestivalData(userId) {
+        function getLlikedBandsData(userId) {
             FacebookService.getLikedBands(userId).then(
                 function (data) {
                     vm.bands = LogicService.getFilteredBandsData(data);
                     vm.dataLoaded = true;
-                    console.log(vm.bands);
+
+                    getFestivalsData();
                 }
             )
+        }
 
-            FestivalsDataService.getFestivalsData().then(
+        function getFestivalsData() {
+            FestivalsService.getFestivalsData(vm.bands).then(
                 function (data) {
-                    vm.festivals = data;
-                    vm.festivalsCount = LogicService.bestFestivalLogic(data);
-                    console.log(vm.festivalsCount);
-
+                    vm.festivals = FestivalsService.filterNonActiveBands(data);
+                    vm.festivalsCount = LogicService.bestFestivalLogic(vm.festivals);
                 },
                 function (error) {
                     console.error(error);
@@ -95,9 +95,13 @@
         }
 
         function removeBand(index) {
-            index = index + (vm.currentPage * vm.pageSize);
-            console.log("index to remove:"+ index);
+            index += (vm.currentPage * vm.pageSize);
+        
             vm.bands.splice(index, 1);
+        }
+
+        function arrayToString(arr) {
+            return arr.join(", ");
         }
 
         ///// Pagintation for bands list

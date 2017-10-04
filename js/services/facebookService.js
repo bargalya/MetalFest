@@ -2,13 +2,13 @@
     'use strict';
 
     var serviceName = 'FacebookService';
-    var serviceDependencies = ['$http', '$rootScope', '$q', 'Config', 'UtilsService', facebookService];
+    var serviceDependencies = ['$rootScope', '$q', 'Config', 'UtilsService', facebookService];
 
     app.service(serviceName, serviceDependencies);
 
     ////////////////////////////////////////////////////////
 
-    function facebookService($http, $rootScope, $q, Config, UtilsService) {
+    function facebookService($rootScope, $q, Config, UtilsService) {
         // private variables
         var data = [];
         var userInfo;
@@ -28,7 +28,7 @@
         function handleAppLogin() {
             FB.api('/me', function (response) {
                 userInfo = response;
-                handleDataFromLogin(userInfo);
+                $rootScope.$broadcast(Config.events.LOGIN, userInfo);
             });
         }
 
@@ -37,7 +37,7 @@
             data = [];
             deferred = undefined;
 
-            handleDataFromLogout(data);
+            $rootScope.$broadcast(Config.events.LOGOUT);
         }
 
         function getLikedBands(userId) {
@@ -63,25 +63,10 @@
 
             if (!UtilsService.isDefined(response.paging) || !UtilsService.isDefined(response.paging.next)) {
                 deferred.resolve(data);
-            } else {
+            } 
+            else {
                 FB.api(response.paging.next, getNextPageData);
             }
         }
-
-
-        /////Events////////
-        function handleDataFromLogin(response) {
-            $rootScope.$broadcast(Config.events.LOGIN, response);
-        }
-
-        function handleDataFromLogout(response) {
-            var logoutedData = {
-                userInfo : userInfo,
-                bands : data
-            }
-            $rootScope.$broadcast(Config.events.LOUGOUT, logoutedData);
-        }
-
-
     }
 })(app);

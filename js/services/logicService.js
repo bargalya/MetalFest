@@ -24,7 +24,7 @@
 
         function getFilteredBandsData(bands) {
             var results = [];
-            
+
             for (var i = 0; i < bands.length; i++) {
                 var currentBand = bands[i].name.toLowerCase();
 
@@ -37,7 +37,6 @@
         }
 
         function isValidBandName(name) {
-
             for (var i = 0; i < Config.excludedWordsList.length; i++) {
                 if (name.indexOf(Config.excludedWordsList[i]) !== -1) {
                     return false;
@@ -48,25 +47,32 @@
         }
 
         function bestFestivalLogic(bandsFestivalsData) {
-
             var festivalCount = {};
+            var result = [];
 
-            for (var i in bandsFestivalsData) {
+            for (var i = 0; i < bandsFestivalsData.length; i++) {
                 var bandData = bandsFestivalsData[i];
 
-                for (var key in bandData.festivalsData) {
-                    var festivalName = bandData.festivalsData[key].series.displayName;
+                for (var j = 0; j < bandData.festivalsData.length; j++) {
+                    var festivalName = bandData.festivalsData[j].series.displayName;
 
-                    if (UtilsService.isNumber(festivalCount[festivalName])) {
-                        festivalCount[festivalName] += 1
+                    if (UtilsService.isDefined(festivalCount[festivalName])) {
+                        festivalCount[festivalName].push(bandData.bandName);
                     } else {
-                        festivalCount[festivalName] = 1
+                        festivalCount[festivalName] = [bandData.bandName];
                     }
                 }
             }
 
-            return festivalCount;
-        }
+            for (var key in festivalCount) {
+                result.push({
+                    festivalName: key,
+                    bandsArray: festivalCount[key],
+                    bandsCount: festivalCount[key].length
+                });
+            }
 
+            return _.sortBy(result, ['bandsCount']).reverse();
+        }
     }
 })(app);
