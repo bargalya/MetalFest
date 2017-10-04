@@ -28,7 +28,7 @@
                 </div>
                 <ul>
                     <li ng-repeat="band in vm.bands | filter: query | StartFromFilter:vm.currentPage*vm.pageSize | limitTo:vm.pageSize">
-                        {{ band.name | CapitalizeFilter }}
+                        {{ band | CapitalizeFilter }}
                         <span ng-click="vm.removeBand($index)">×</span>
                     </li>
                 </ul>
@@ -55,6 +55,7 @@
         <div id="fb-root"></div>
     </div>
     <script src="vendors/angular.min.js"></script>
+    <script src="vendors/lodash.min.js"></script>
     <script src="js/metalFest.js"></script>
     <script src="js/config.js"></script>
     <script src="js/filters/capitalizeFilter.js"></script>

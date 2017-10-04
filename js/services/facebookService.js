@@ -71,7 +71,7 @@
 
         /////Events////////
         function handleDataFromLogin(response) {
-            $rootScope.$broadcast(Config.Events.handleLoginData, response);
+            $rootScope.$broadcast(Config.events.LOGIN, response);
         }
 
         function handleDataFromLogout(response) {
@@ -79,7 +79,7 @@
                 userInfo : userInfo,
                 bands : data
             }
-            $rootScope.$broadcast(Config.Events.handleLogout, logoutedData);
+            $rootScope.$broadcast(Config.events.LOUGOUT, logoutedData);
         }
 
 
