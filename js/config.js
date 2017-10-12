@@ -20,7 +20,7 @@
         },
         excludedWordsList: [
             'official', '(band)', 'radio', 'festival', 'production', 'deathfest', 'records', 'magazine',
-            'wacken', 'open air', 'ov metal', 'israel', 'folk'
+            'wacken', 'open air', 'ov metal', 'israel', '--', '!', 'black metal', 'folk', 'metal from'
         ]
     });
 })(app);

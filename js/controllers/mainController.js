@@ -47,7 +47,7 @@
                     $scope.$apply(function () {
                         vm.userInfo = data;
                         vm.isLoggedIn = true;
-                        
+
                         getLlikedBandsData(vm.userInfo.id);
                     });
                 }
@@ -76,7 +76,7 @@
         }
 
         function getFestivalsData() {
-            FestivalsService.getFestivalsData(vm.bands).then(
+            FestivalsService.getFestivalsDataAllBands(vm.bands).then(
                 function (data) {
                     vm.festivals = FestivalsService.filterNonActiveBands(data);
                     vm.festivalsCount = LogicService.bestFestivalLogic(vm.festivals);
@@ -87,18 +87,28 @@
         }
 
         function addBand() {
-            vm.bands.push({
-                name: vm.addedBands
-            });
+            vm.bands.push(vm.addedBands);
+
+            FestivalsService.getFestivalDataSingleBand(vm.addedBands).then(
+                function (data) {
+                    if(FestivalsService.isBandActive(data)) {
+                        vm.festivals.push(data);
+                        vm.festivalsCount = LogicService.bestFestivalLogic(vm.festivals);
+                    }
+                },
+                function (error) {
+                    console.error(error);
+                });
 
             vm.addedBands = undefined;
         }
 
         function removeBand(index) {
             index += (vm.currentPage * vm.pageSize);
-        
+            vm.festivals = FestivalsService.removeFestivalByBandName(vm.festivals, vm.bands[index]);
+            vm.festivalsCount = LogicService.bestFestivalLogic(vm.festivals);
             vm.bands.splice(index, 1);
-        }
+        }   
 
         function arrayToString(arr) {
             return arr.join(", ");

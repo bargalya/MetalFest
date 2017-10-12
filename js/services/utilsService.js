@@ -14,7 +14,8 @@
             isDefined: isDefined,
             is: is,
             isStringNullOrEmpty: isStringNullOrEmpty,
-            isNumber: isNumber
+            isNumber: isNumber,
+            isArray: isArray
         };
 
         return api;
@@ -39,6 +40,10 @@
 
         function isNumber(arg) {
             return (isDefined(arg) && is(arg, 'number'));
+        }
+
+        function isArray(arg) {
+            return (isDefined(arg) && isNumber(arg.length));
         }
     }
 })(app);

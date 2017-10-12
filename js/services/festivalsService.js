@@ -14,26 +14,49 @@
 
         // service API
         var api = {
-            getFestivalsData: getFestivalsData,
-            filterNonActiveBands: filterNonActiveBands
+            getFestivalsDataAllBands: getFestivalsDataAllBands,
+            getFestivalDataSingleBand: getFestivalDataSingleBand,
+            filterNonActiveBands: filterNonActiveBands,
+            isBandActive: isBandActive,
+            removeFestivalByBandName: removeFestivalByBandName
         };
 
         return api;
 
         ///////////////////////////////////////////////////
 
-        function getFestivalsData(bandsToGet) {
+        ///Public Methods ///
+        function getFestivalsDataAllBands(bandsToGet) {
             var promiseArray = [];
 
             for (var i in bandsToGet) {
-                var band = formatBandNameToAPI(bandsToGet[i]);
-                promiseArray.push(getBandFestivalData(band, $q.defer()));
+                promiseArray.push(getFestivalDataSingleBand(bandsToGet[i]));
             }
 
-            //wait for all the promises to finish, and returns an array of all the datas
+            //wait for all the promises to finish, and returns an array of all the data
             return $q.all(promiseArray);
         }
 
+        function getFestivalDataSingleBand(band) {
+            band = formatBandNameToAPI(band);
+            return getBandFestivalDataByAPI(band, $q.defer());
+        }
+
+        function filterNonActiveBands(bandsData) {
+            return _.remove(bandsData, isBandActive);
+        }
+
+        function isBandActive(bandData) {
+            return UtilsService.isDefined(bandData.festivalsData);
+        }
+
+        function removeFestivalByBandName(festivalsArr, bandName) {
+            return _.remove(festivalsArr, function(bandData) {
+                return bandData.bandName !== bandName;
+            });
+        }
+
+        ///Private Methods ///
         function formatBandNameToAPI(name) {
             return name.replace(/\s/g, '+');
         }
@@ -42,13 +65,7 @@
             return name.replace(/\+/g, ' ');
         }
 
-        function filterNonActiveBands(bandsData) {
-            return _.remove(bandsData, function (bandData) {
-                return UtilsService.isDefined(bandData.festivalsData);
-            });
-        }
-
-        function getBandFestivalData(bandName, deferredObject) {
+        function getBandFestivalDataByAPI(bandName, deferredObject) {
             var url = getSongKickFestivalUrl(bandName);
 
             getData(url, onSuccess).then(
